@@ -1,6 +1,16 @@
+:root{
+    --box-color: #c0f8c7;
+    --button-color:rgb(7, 176, 142);
+    --background-color:#c2f8e9;
+    --box2-color:#c2f8e9;
+    --list-background:rgb(10, 212, 171);
+    --header-footer:rgb(41, 226, 189);
+    
+}
+
 body{
-    background-color:rgb(215, 250, 240);
-    height: 100dvh;
+    background-color:var(--background-color);
+    height: auto;
 }
 
 *{
@@ -20,6 +30,19 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    background-color: var(--header-footer);
+
+    position: fixed;
+    width: 98%;
+    height: 70px;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid black;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
 }
 
 .icon-cart{
@@ -36,6 +59,83 @@ h1{
     font-weight:400;
 
 }
+/* -----------------------Advertisement----------------------- */
+.advertisement{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    
+}
+
+.advertisement div h2{
+    font-size: 65px;
+    font-weight: 500;
+}
+.advertisement div p{
+    font-size: 40px;
+    margin: 15px 0;
+}
+.advertisement div button{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+}
+
+.advertisement div button:hover{
+    transform: scale(1.05);
+    box-shadow: 3px 6px black;
+}
+
+.adv-data{
+    width: 50%;
+}
+
+.adv-div{
+    width: 50%;
+}
+
+.advertisement div img{
+    width: 100%;
+}
+
+/* -----------------------Heading----------------------- */
+.headin{
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+}
+
+.headin > h1{
+    font-size: 2.5rem;
+    color: black;
+}
+
+/* -----------------------section----------------------- */
+section{
+    height: 85vh;
+}
+
+
+.home-img{
+    width: 98%;
+    margin-left: 1%;
+    border: 1px solid black;
+    box-shadow: 5px 10px;
+    margin-bottom: 8rem;
+
+    position: relative;
+    top: 80px;
+}
+
+.home-img2{
+    display: none;
+}
 
 /* -----------------------main----------------------- */
 
@@ -44,15 +144,15 @@ h2{
 }
 
 main{
-    display: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
 
-    height: auto;
-    width: 100%;
+    height: 100dvh;
+    width: 96%;
+    margin-left: 2%;
     place-items: center;
 
-    gap: 20px;
+    gap: 0px;
 }
 
 .item-img{
@@ -67,7 +167,7 @@ main{
     height: 20rem;
     border: 1px solid black;
     border-radius: 15px;
-    background-color: #aef5b6;
+    background-color: var(--box-color);
 
     display: flex;
     flex-direction: column;
@@ -91,7 +191,7 @@ main{
     border: 1px solid black;
     cursor: pointer;
 
-    background-color: rgb(7, 176, 142);
+    background-color: var(--button-color);
     border-radius: 5px;
     color: white;
 
@@ -108,15 +208,16 @@ main{
 
 .cartTab{
 
-    color: white;
-    background-color: rgb(4, 111, 89);
+    color: black;
+    background-color: var(--list-background);
     border-left: 2px solid black;
 
     width: 27rem;
     height: 100dvh;
     position: fixed;
+    z-index: 30;
 
-    inset: 0 -27rem 0 auto;
+    inset: 0 -28rem 0 auto;
     display: grid;
     grid-template-rows: 50px 1fr 70px;
 
@@ -139,16 +240,21 @@ body.showCart .cartTab{
 .cartBtn{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    margin: 2px 10px;
+    gap: 2px;
 }
 
 .cartBtn > button{
-    background-color: #31f948;
+    background-color: var(--box-color);
     border: none;
     cursor: pointer;
+
+    border: 1px solid black;
+    font-size: 20px;
 }
 
 .close{
-    background-color: #e4e9dd !important;
+    background-color: var(--box2-color) !important;
 }
 
 /* -----------------------Cart items----------------------- */
@@ -168,13 +274,14 @@ body.showCart .cartTab{
     text-align: center;
     align-items: center;
 
-    background-color: rgb(0, 122, 24);
+    background-color: var(--box2-color);
     border: 1px solid black;
 
 }
 
 .listCart .items:nth-child(even){
-    background-color: rgb(2, 150, 31);
+    background-color: var(--box-color);
+    color: black;
 }
 
 .listCart{
@@ -193,7 +300,7 @@ body.showCart .cartTab{
     display: inline-block;
     width: 25px;
     height: 25px;
-    background-color: greenyellow;
+    background-color: var(--list-background);
     color: black;
     border-radius: 50%;
     cursor: pointer;
@@ -202,16 +309,23 @@ body.showCart .cartTab{
 
 .listCart .quantity span:nth-child(2){
     background-color: transparent;
-    color:white;
+    color:black;
 }
 
+/* -----------------------Footer----------------------- */
+
+footer{
+    height: 20rem;
+    background-color: var(--header-footer);
+    border-top: 1px solid black;
+}
 
 
 @media (max-width: 500px) {
 
     main{
         grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); 
-        gap: 4px;
+        gap: 20px;
     }
 
     h1{
@@ -230,6 +344,25 @@ body.showCart .cartTab{
     .item:active button {
         transform: translate(-5px, -10px);
         box-shadow: 2px 4px rgba(0, 0, 0, 1);
+    }
+
+    .home-img{
+        display: none;
+    }
+    .home-img2{
+        display: block;
+        border: 1px solid black;
+        box-shadow: 5px 10px;
+        width: 90%;
+        margin-left: 4%;
+
+        position: relative;
+        top: 80px;
+    }
+
+    section{
+        height: auto;
+        min-height: 100;
     }
 
     .cartTab{
@@ -260,6 +393,49 @@ body.showCart .cartTab{
     .plus{
         height: 2px;
         width: 2px;
+    }
+
+    .advertisement{
+        flex-direction:column-reverse;
+        width: 70%;
+        margin-top: 30%;
+    }
+
+    .adv-data{
+        width: 100%;
+    }
+    
+    .adv-div{
+        width: 100%;
+    }
+    
+
+    .advertisement div h2{
+        font-size: 35px;
+        font-weight: 400;
+    }
+    .advertisement div p{
+        font-size: 25px;
+        margin: 15px 0;
+    }
+    .advertisement div button{
+        height: 30px;
+        width: 80px;
+        font-size: 10px;
+    }
+
+    .headin{
+        margin: 30px 0;
+        height: 40px;
+    }
+    .headin > h1{
+        font-size: 1.5rem;
+
+        color: black;
+    }
+
+    footer{
+        display: none;
     }
 }
 
