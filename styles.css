@@ -1,0 +1,265 @@
+body{
+    background-color:rgb(215, 250, 240);
+    height: 100vh;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont;
+}
+
+.container{
+    transition: transform .5s ease-out;
+}
+
+/* -----------------------Header----------------------- */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.icon-cart{
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.icon-cart:hover{
+    stroke-width: 0.5;
+    transform: scale(1.1);
+}
+
+h1{
+    font-weight:400;
+
+}
+
+/* -----------------------main----------------------- */
+
+h2{
+    font-weight: 300;
+}
+
+main{
+    display: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
+
+    height: auto;
+    width: 100%;
+    place-items: center;
+
+    gap: 20px;
+}
+
+.item-img{
+    width: 13rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+}
+
+.item{
+    width: 13rem;
+    height: 20rem;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #aef5b6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 5px 10px; /* Softer shadow */
+    transition: all 0.2s ease-in-out;
+}
+
+.item:hover{
+    box-shadow: 0 0;
+    transform: translate(5px, 10px)
+}
+
+.addToCart{
+    height: 30px;
+    width: 6rem;
+    border: 1px solid black;
+    cursor: pointer;
+
+    background-color: rgb(7, 176, 142);
+    border-radius: 5px;
+    color: white;
+
+    transition: all 0.2s ease-in-out;
+
+}
+
+.item:hover button {
+    transform: translate(-5px, -10px);
+    box-shadow: 2px 4px rgba(0, 0, 0, 1);
+}
+
+/* -----------------------Cart Tab----------------------- */
+
+.cartTab{
+
+    color: white;
+    background-color: rgb(4, 111, 89);
+    border-left: 2px solid black;
+
+    width: 27rem;
+    height: 100vh;
+    position: fixed;
+
+    inset: 0 -27rem 0 auto;
+    display: grid;
+    grid-template-rows: 50px 1fr 70px;
+
+    transition: .4s ease-in-out;
+    /* display: none; */
+}
+
+body.showCart .cartTab{
+    inset: 0 0 0 auto;
+}
+
+.body.showCart .container{
+    transform: translateX(-250px)
+}
+
+.cartTab .listCart,h1{
+    margin: 5px 10px;
+}
+
+.cartBtn{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.cartBtn > button{
+    background-color: #31f948;
+    border: none;
+    cursor: pointer;
+}
+
+.close{
+    background-color: #e4e9dd !important;
+}
+
+/* -----------------------Cart items----------------------- */
+
+.cartTab .listCart .items img{
+    width: 100%;
+
+    position: relative;
+    top: 1.5px;
+    left: 1.5px;
+}
+
+.cartTab .listCart .items{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+
+    background-color: rgb(0, 122, 24);
+    border: 1px solid black;
+
+}
+
+.listCart .items:nth-child(even){
+    background-color: rgb(2, 150, 31);
+}
+
+.listCart{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.listCart::-webkit-scrollbar{
+    width: 0;
+
+}
+
+.listCart .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: greenyellow;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color:white;
+}
+
+
+
+@media (max-width: 500px) {
+
+    main{
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); 
+        gap: 4px;
+    }
+
+    h1{
+        font-size: 23px;
+    }
+
+    h2,button{
+        font-size: 15px;
+    }
+
+    .item:active{
+        box-shadow: 0 0;
+        transform: translate(5px, 10px)
+    }
+
+    .item:active button {
+        transform: translate(-5px, -10px);
+        box-shadow: 2px 4px rgba(0, 0, 0, 1);
+    }
+
+    .cartTab{
+        width: 100%;
+        inset: 0 100% 0 auto;
+    }
+    .cartTab .listCart .items{
+        grid-template-columns: 80px 1fr 1fr 1fr;
+    }
+    .item-img{
+        width: 100%;
+    }
+
+    .item{
+        width: 8rem;
+        height: 13.5rem;
+    }
+
+    .quantity{
+        width: 100px;
+    }
+
+    .quantity span{
+        font-size: 1px;
+        width: 10px;
+        height: 10px;
+    }
+    .plus{
+        height: 2px;
+        width: 2px;
+    }
+}
+

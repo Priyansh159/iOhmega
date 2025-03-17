@@ -1,0 +1,62 @@
+[
+    {
+        "id":1,
+        "name": "Iphone 16 Pro Max",
+        "price":135900,
+        "image":"/assets/16pro.webp"
+    },
+    {
+        "id":2,
+        "name": "Iphone 16e",
+        "price":59900,
+        "image":"/assets/16e.webp"
+    },
+    {
+        "id":3,
+        "name": "Iphone 16",
+        "price":74900,
+        "image":"/assets/16.webp"
+    },
+    {
+        "id":4,
+        "name": "Iphone 15",
+        "price":64999,
+        "image":"/assets/15.webp"
+    },
+    {
+        "id":5,
+        "name": "Iphone 14",
+        "price":"54999",
+        "image":"/assets/14.webp"
+    },
+    {
+        "id":6,
+        "name": "Ipad Pro",
+        "price":120449,
+        "image":"/assets/ipad-pro.webp"
+    },
+    {
+        "id":7,
+        "name": "Macbook Pro M4",
+        "price":99990,
+        "image":"/assets/m4.webp"
+    },
+    {
+        "id":8,
+        "name": "Airpods Max",
+        "price":59900,
+        "image":"/assets/airpods-max.webp"
+    },
+    {
+        "id":9,
+        "name": "Apple Watch Ultra",
+        "price":89900,
+        "image":"/assets/watch-ultra.webp"
+    },
+    {
+        "id":10,
+        "name": "Mac Mini M4",
+        "price":59900,
+        "image":"/assets/mac-mini-m4.webp"
+    }
+]
