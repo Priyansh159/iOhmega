@@ -5,21 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="">
     <div class="container">
         <header>
-            <h1>Product List</h1>
+            <div class="logo">
+                <img height="50px" src="./assets/logo.png">
+                <h1>iOhmega</h1>
+            </div>
+            
             <div class="icon-cart">
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"  d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
                   </svg>
                   <span class="cart-count">0</span> 
             </div>
-            
-              
         </header>
 
+        <section>
+            <img class="home-img" src="./assets/2.png">
+            <img class="home-img2" src="./assets/3.png">
+        </section>
+
+        <div class="headin">
+            <h1>Trending</h1>
+        </div>
+
+        <div class="advertisement">
+            <div data-aos="fade-right" data-aos-duration="500" class="adv-data">
+                <h2>All new</h2>
+                <h2> Iphone 16 Pro Max</h2>
+                <p>A18 Bionic Chip</p>
+                <button class="addToCart">Add to cart</button>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="500" class="adv-div">
+                <img src="./assets/iphones-pro.png">
+            </div>
+        </div>
+        <div class="headin">
+            <h1>Products</h1>
+        </div>
         <main class="listProduct">
             <!-- <div class="item">
                 <img class="item-img" src="/assets/16pro.webp">
@@ -111,6 +137,14 @@
         </div>
     </div>
 
+    <footer>
+        <h1>Footer</h1>
+        <h1>All rights reserved</h1>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./app.js"></script>
+    <script >
+        AOS.init();
+    </script>
 </body>
 </html>
