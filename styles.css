@@ -1,6 +1,6 @@
 body{
     background-color:rgb(215, 250, 240);
-    height: 100vh;
+    height: 100dvh;
 }
 
 *{
@@ -113,7 +113,7 @@ main{
     border-left: 2px solid black;
 
     width: 27rem;
-    height: 100vh;
+    height: 100dvh;
     position: fixed;
 
     inset: 0 -27rem 0 auto;
