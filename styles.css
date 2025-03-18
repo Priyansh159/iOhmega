@@ -13,6 +13,10 @@ body{
     height: auto;
 }
 
+body::-webkit-scrollbar{
+    width: 0;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -229,7 +233,6 @@ main{
 /* -----------------------Cart Tab----------------------- */
 
 .cartTab{
-
     color: black;
     background-color: var(--list-background);
     border-left: 2px solid black;
@@ -238,14 +241,38 @@ main{
     height: 100dvh;
     position: fixed;
     z-index: 30;
+    padding: 0 15px;
 
-    inset: 0 -28rem 0 auto;
+    inset: 0 -29rem 0 auto;
     display: grid;
-    grid-template-rows: 50px 1fr 70px;
+    grid-template-rows: 50px 1fr 20px 70px;
 
     transition: .4s ease-in-out;
     /* display: none; */
 }
+
+.shop-tab{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-tab button{
+    background-color: rgb(1, 98, 90);
+    color: white;
+    height: 30px;
+    width: 50px;
+    font-size: 25px;
+    border: 1px solid black;
+
+    transition: all .3s ease-in-out;
+}
+
+.shop-tab:hover button {
+    transform: translate(3px, 6px);
+    box-shadow: -3px -6px rgba(0, 0, 0, 1);
+}
+
 
 body.showCart .cartTab{
     inset: 0 0 0 auto;
@@ -256,17 +283,17 @@ body.showCart .cartTab{
 }
 
 .cartTab .listCart,h1{
-    margin: 5px 10px;
+    margin: 5px 0px;
 }
 
 .cartBtn{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    margin: 2px 10px;
+    margin: 3px 0px;
     gap: 2px;
 }
 
-.cartBtn > button{
+.cartBtn button{
     background-color: var(--box-color);
     border: none;
     cursor: pointer;
@@ -275,9 +302,15 @@ body.showCart .cartTab{
     font-size: 20px;
 }
 
-.close{
-    background-color: var(--box2-color) !important;
+.hover-btn{
+    transition: all .2s ease-in-out;
 }
+
+.hover-btn:hover {
+    transform: translate(-3px, -6px);
+    box-shadow: 3px 6px rgba(0, 0, 0, 1);
+}
+
 
 /* -----------------------Cart items----------------------- */
 
@@ -303,8 +336,8 @@ body.showCart .cartTab{
 
 .listCart .items:nth-child(even){
     background-color: var(--box-color);
-    color: black;
 }
+
 
 .listCart{
     overflow: auto;
@@ -315,7 +348,6 @@ body.showCart .cartTab{
 
 .listCart::-webkit-scrollbar{
     width: 0;
-
 }
 
 .listCart .quantity span{
@@ -384,7 +416,7 @@ footer{
     }
 
     .cartTab{
-        width: 100%;
+        width: 92%;
         inset: 0 100% 0 auto;
     }
     .cartTab .listCart .items{
