@@ -59,6 +59,48 @@ h1{
     font-weight:400;
 
 }
+
+/* -----------------------section----------------------- */
+section{
+    height: 85vh;
+}
+
+.home-img{
+    width: 98%;
+    margin-left: 1%;
+    
+    margin-bottom: 8rem;
+
+
+}
+
+.home-img2{
+    display: none;
+}
+
+.sec-anim{
+    border: 1px solid black;
+
+    position: relative;
+    top: 80px;
+
+    animation: popUp 0.5s ease-in 1s forwards;
+
+    transform: translate(5px, 10px);
+}
+
+@keyframes popUp{
+    from{
+        transform: translate(5px, 10px);
+        box-shadow: 0px 0px;
+    }
+    to{
+        box-shadow: 7px 14px;
+        transform: translate(0px, 0px);
+    }
+}
+
+
 /* -----------------------Advertisement----------------------- */
 .advertisement{
     display: flex;
@@ -116,26 +158,6 @@ h1{
     color: black;
 }
 
-/* -----------------------section----------------------- */
-section{
-    height: 85vh;
-}
-
-
-.home-img{
-    width: 98%;
-    margin-left: 1%;
-    border: 1px solid black;
-    box-shadow: 5px 10px;
-    margin-bottom: 8rem;
-
-    position: relative;
-    top: 80px;
-}
-
-.home-img2{
-    display: none;
-}
 
 /* -----------------------main----------------------- */
 
@@ -351,13 +373,9 @@ footer{
     }
     .home-img2{
         display: block;
-        border: 1px solid black;
-        box-shadow: 5px 10px;
         width: 90%;
         margin-left: 4%;
 
-        position: relative;
-        top: 80px;
     }
 
     section{
