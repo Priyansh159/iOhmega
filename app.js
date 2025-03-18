@@ -5,8 +5,12 @@ let listProductHTML = document.querySelector(".listProduct");
 let listCartHTML = document.querySelector('.listCart');
 let iconCartSpan = document.querySelector('.icon-cart span')
 
+let totalAmt = document.querySelector('#totalAmount')
+let advAddToCartButton = document.querySelector(".advertisement .addToCart");
+
 let listProducts = []
 let carts = [];
+let totalSum = 0;
 
 iconCart.addEventListener('click', ()=>{
     body.classList.toggle('showCart')
@@ -62,24 +66,26 @@ const addToCart = (product_id) =>{
     addCartToHTML();
 }
 
-const addCartToHTML = ()=>{
+const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
-    if(carts.length > 0){
-        carts.forEach(cart =>{
+    let totalSum = 0; // Reset totalSum before recalculating
+
+    if (carts.length > 0) {
+        carts.forEach(cart => {
+            let positionProduct = listProducts.findIndex(value => value.id == cart.product_id);
+            let info = listProducts[positionProduct];
+
             totalQuantity += cart.quantity;
+            totalSum += info.price * cart.quantity; // Correctly sum the total price
+
             let newCart = document.createElement('div');
             newCart.classList.add('items');
             newCart.dataset.id = cart.product_id;
-            let positionProduct = listProducts.findIndex((value) => value.id == cart.product_id )
-            let info = listProducts[positionProduct];
 
-        
-            // newCart.dataset.id = cart.product_id;
-
-            newCart.innerHTML=`
-            <div class="image">
-                    <img src = "${info.image}">
+            newCart.innerHTML = `
+                <div class="image">
+                    <img src="${info.image}">
                 </div>
                 <div class="name">
                     ${info.name}
@@ -92,12 +98,14 @@ const addCartToHTML = ()=>{
                     <span>${cart.quantity}</span>
                     <span class="plus"> + </span>
                 </div>
-                `;
-        listCartHTML.appendChild(newCart);
-        })
+            `;
+            listCartHTML.appendChild(newCart);
+        });
     }
+
     iconCartSpan.innerText = totalQuantity;
-}
+    totalAmt.innerText = `Total : ₹${totalSum}`; // Update the total price in real-time
+};
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -129,25 +137,22 @@ listCartHTML.addEventListener('click', (event)=>{
         changeQuantity(product_id, type);
     }
 })
-const changeQuantity = (product_id, type) =>{
-    let positionItemCart = carts.findIndex((value) => value.product_id == product_id)
-    if(positionItemCart >= 0){
-        switch(type){
-            case 'plus':
-                carts[positionItemCart].quantity = carts[positionItemCart].quantity + 1;
-                break;
-            case 'minus':
-                let valueChange = carts[positionItemCart].quantity - 1;
-                if (valueChange > 0){
-                    carts[positionItemCart].quantity = carts[positionItemCart].quantity - 1;
-                }else{
-                    carts.splice(positionItemCart, 1);
-                }
-                break;
+const changeQuantity = (product_id, type) => {
+    let positionItemCart = carts.findIndex(value => value.product_id == product_id);
+
+    if (positionItemCart >= 0) {
+        if (type === 'plus') {
+            carts[positionItemCart].quantity += 1;
+        } else if (type === 'minus') {
+            carts[positionItemCart].quantity -= 1;
+            if (carts[positionItemCart].quantity <= 0) {
+                carts.splice(positionItemCart, 1); // Remove the item if quantity is 0
+            }
         }
     }
-    addCartToHTML();
-}
+
+    addCartToHTML(); // Update totalSum after changing quantity
+};
 
 const initApp = () =>{
     //data from json
@@ -161,3 +166,20 @@ const initApp = () =>{
 initApp();
 
 
+
+// Advertisement add to cart button
+advAddToCartButton.addEventListener("click", () => {
+    // Ensure products are loaded first
+    if (listProducts.length > 0) {
+        let firstProduct = listProducts[0]; // Get the first product (iPhone 16 Pro Max)
+        addToCart(firstProduct.id); // Add it to the cart
+    }
+});
+
+//to clear every thing from the cart
+document.querySelector('.clear').addEventListener('click', () => {
+    carts = []; // Empty the cart array
+    iconCartSpan.innerText = 0; // Reset cart count
+    totalAmt.innerText = "Total : ₹0.00"; // Reset total amount
+    listCartHTML.innerHTML = ''; // Clear the cart display
+});
