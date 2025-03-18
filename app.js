@@ -99,6 +99,25 @@ const addCartToHTML = ()=>{
     iconCartSpan.innerText = totalQuantity;
 }
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    let bigImages = ["./assets/1.png", "./assets/4.png", "./assets/5.png"];
+    let smallImages = ["./assets/3.png", "./assets/6.png", "./assets/7.png"];   //
+    
+    let bigImgElement = document.getElementById("big-img");
+    let smallImgElement = document.getElementById("small-img");
+
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % bigImages.length; // Loop back
+        bigImgElement.src = bigImages[index];
+        smallImgElement.src = smallImages[index];
+    }, 6000); // 3 seconds interval
+});
+
+
+
 listCartHTML.addEventListener('click', (event)=>{
     let positionClick = event.target;
     if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
@@ -140,3 +159,5 @@ const initApp = () =>{
     })
 }
 initApp();
+
+
