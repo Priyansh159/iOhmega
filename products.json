@@ -38,25 +38,26 @@
     {
         "id":7,
         "name": "Macbook Pro M4",
-        "price":99990,
-        "image":"/assets/m4.webp"
+        "price":239990,
+        "image":"/assets/prom4.jpeg"
     },
     {
         "id":8,
-        "name": "Airpods Max",
+        "name": "Macbook Air M4",
+        "price":99900,
+        "image":"/assets/airm4.webp"
+    },
+    {
+        "id":9,
+        "name": "Airpods Max 2",
         "price":59900,
         "image":"/assets/airpods-max.webp"
     },
     {
-        "id":9,
-        "name": "Apple Watch Ultra",
-        "price":89900,
-        "image":"/assets/watch-ultra.webp"
-    },
-    {
         "id":10,
-        "name": "Mac Mini M4",
-        "price":59900,
-        "image":"/assets/mac-mini-m4.webp"
+        "name": "Air Pods 4",
+        "price":12900,
+        "image":"/assets/airpods.webp"
     }
+
 ]
