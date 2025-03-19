@@ -5,12 +5,14 @@
     --box2-color:#c2f8e9;
     --list-background:rgb(10, 212, 171);
     --header-footer:rgb(41, 226, 189);
-    
+    --topic-stuff:rgb(255, 255, 255);
+    --white-text:white;
+    --black-text:rgb(0, 0, 0);
 }
 
 body{
     background-color:var(--background-color);
-    height: auto;
+    height: 100dvh;
 }
 
 body::-webkit-scrollbar{
@@ -66,7 +68,7 @@ h1{
 
 /* -----------------------section----------------------- */
 section{
-    height: 85vh;
+    height: auto;;
 }
 
 .home-img{
@@ -74,8 +76,6 @@ section{
     margin-left: 1%;
     
     margin-bottom: 8rem;
-
-
 }
 
 .home-img2{
@@ -110,7 +110,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 50px;;
     
 }
 
@@ -154,12 +154,12 @@ section{
     align-items: center;
     justify-content: center;
 
-    background-color: white;
+    background-color: var(--topic-stuff);
 }
 
 .headin > h1{
     font-size: 2.5rem;
-    color: black;
+    color: var(--black-color);
 }
 
 
@@ -173,11 +173,12 @@ main{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
 
-    height: 100dvh;
-    width: 96%;
-    margin-left: 2%;
+    height: auto;
+    min-height: 100dvh;
+    padding: 0 2%;
     place-items: center;
 
+    margin-bottom: 30px;
     gap: 0px;
 }
 
@@ -219,7 +220,7 @@ main{
 
     background-color: var(--button-color);
     border-radius: 5px;
-    color: white;
+    color: var(--white-text);
 
     transition: all 0.2s ease-in-out;
 
@@ -233,7 +234,7 @@ main{
 /* -----------------------Cart Tab----------------------- */
 
 .cartTab{
-    color: black;
+    color: var(--black-text);
     background-color: var(--list-background);
     border-left: 2px solid black;
 
@@ -259,7 +260,7 @@ main{
 
 .shop-tab button{
     background-color: rgb(1, 98, 90);
-    color: white;
+    color: var(--white-text);
     height: 30px;
     width: 50px;
     font-size: 25px;
@@ -355,7 +356,7 @@ body.showCart .cartTab{
     width: 25px;
     height: 25px;
     background-color: var(--list-background);
-    color: black;
+    color: var(--black-text);
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.15rem;
@@ -373,6 +374,33 @@ footer{
     background-color: var(--header-footer);
     border-top: 1px solid black;
 }
+
+.upper-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+
+    height: 70%;
+}
+
+.lower-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+
+    height: 30%;
+}
+
+.database{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* -----------------------Media Queries----------------------- */
 
 
 @media (max-width: 500px) {
@@ -411,8 +439,7 @@ footer{
     }
 
     section{
-        height: auto;
-        min-height: 100;
+        margin-bottom: 15dvh;
     }
 
     .cartTab{
@@ -448,7 +475,6 @@ footer{
     .advertisement{
         flex-direction:column-reverse;
         width: 70%;
-        margin-top: 30%;
     }
 
     .adv-data{
@@ -481,11 +507,30 @@ footer{
     .headin > h1{
         font-size: 1.5rem;
 
-        color: black;
+        color: var(--black-text);
     }
 
     footer{
+        height:5rem;
+        font-size: 10px;
+    }
+
+    .upper-footer{
         display: none;
+    }
+    hr{
+        display: none;
+    }
+
+    .lower-footer{
+        height: 100%;
+        padding: 0 10px;
+
+        flex-direction: row-reverse;
+    }
+
+    .logo h1{
+        font-size: 20px;
     }
 }
 
