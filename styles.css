@@ -1,13 +1,13 @@
 :root{
-    --box-color: #c0f8c7;
-    --button-color:rgb(7, 176, 142);
-    --background-color:#c2f8e9;
-    --box2-color:#c2f8e9;
-    --list-background:rgb(10, 212, 171);
-    --header-footer:rgb(41, 226, 189);
-    --topic-stuff:rgb(255, 255, 255);
-    --white-text:white;
-    --black-text:rgb(0, 0, 0);
+    --box-color: #c7c7c7;
+    --button-color: #01a295;
+    --background-color: #e7e7e7;
+    --box2-color: #E9ECEF;
+    --list-background: #343A40;
+    --header-footer: #212529;
+    --topic-stuff: #FFFFFF;
+    --white-text: #FFFFFF;
+    --black-text: #212529;
 }
 
 body{
@@ -44,6 +44,7 @@ header{
     top: 0;
     z-index: 20;
     border-bottom: 1px solid black;
+    color: var(--white-text);
 }
 
 .logo{
@@ -373,6 +374,7 @@ footer{
     height: 20rem;
     background-color: var(--header-footer);
     border-top: 1px solid black;
+    color: var(--white-text);
 }
 
 .upper-footer{
