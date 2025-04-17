@@ -257,6 +257,7 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--white-text);
 }
 
 .shop-tab button{
@@ -324,6 +325,7 @@ body.showCart .cartTab{
     left: 1.5px;
 }
 
+
 .cartTab .listCart .items{
     display: grid;
     grid-template-columns: 70px 150px 50px 1fr;
@@ -357,7 +359,7 @@ body.showCart .cartTab{
     width: 25px;
     height: 25px;
     background-color: var(--list-background);
-    color: var(--black-text);
+    color: var(--white-text);
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.15rem;
@@ -366,6 +368,10 @@ body.showCart .cartTab{
 .listCart .quantity span:nth-child(2){
     background-color: transparent;
     color:black;
+}
+
+#totalAmount{
+    color: var(--white-text);
 }
 
 /* -----------------------Footer----------------------- */
